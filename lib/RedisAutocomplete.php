@@ -34,6 +34,7 @@ class RedisAutocomplete {
 	
 	// Take a string and remove unalphabetic characters and make it lowercase
 	private function Normalize($phrase) {
+		if(!is_string($phrase)) return;
 		$phrase = preg_replace('~, ?~', '_', $phrase);
 		$phrase = preg_replace('~[^a-z0-9_ ]+~', '', strtolower($phrase));
 		return $phrase;
